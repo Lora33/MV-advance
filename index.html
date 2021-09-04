@@ -53,9 +53,7 @@
 			<a-box
 				position="0 2 -5"
 				class="interactable"
-				sound="src: #intro;
-					positional: false;
-					on: click"
+				clicktoplay="src: #intro"
 				animation="property: position;
 						to: 0 2.1 -5;
 						dur: 2000; 
@@ -82,13 +80,29 @@
 				emitonclick>
 			</a-box>
 			
-			<a-entity camera
+			<a-entity id="analyser">
+			</a-entity>
+			<!-- audioanalyser="src: #intro" -->
+
+			<!-- 加光源 -->
+			<a-light type="ambient"
+				analysereffect="analyser: #analyser">
+			</a-light>
+
+			<a-entity id="firstcam"
+				camera="active: true"
 				position="0 1.6 0"
 				look-controls>
 				<a-entity 
 					cursor="rayOrigin: mouse"
 					raycaster="objects: .interactable">
 				</a-entity>
+			</a-entity>
+			<!-- 當有一個beat就換他 -->
+			<a-entity id="secondcam"
+				camera="active: flase"
+				position="0 4 0"
+				rotation="-60 0 0">
 			</a-entity>
 
 		</a-scene>

@@ -6,6 +6,7 @@ AFRAME.registerComponent('emitonclick', {
         }
     },
     // for start box
+    //傳送開始的訊號
     events: {
         click: function() {
             //emit
@@ -15,6 +16,9 @@ AFRAME.registerComponent('emitonclick', {
             this.el.removeAttribute('class');
 
             //TODO: add audio analyser component to analyser element
+            //按下去的時候，會把component放上去
+            let analyser = document.getElementById('analyser');
+            analyser.setAttribute('audioanalyser', 'src: #intro');
         }
     }
 });
